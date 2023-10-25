@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 
-export default (props) => {
+function Slideshow(props) => {
   const vecStyles = {
     height: "80%",
     width: "80%",
@@ -35,3 +35,5 @@ export default (props) => {
     </Swiper>
   );
 };
+
+export default Slideshow;
