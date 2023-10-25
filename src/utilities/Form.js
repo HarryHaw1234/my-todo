@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Form() {
+function Form() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -49,3 +49,5 @@ export default function Form() {
     </form>
   );
 }
+
+export default Form;
