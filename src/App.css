@@ -160,3 +160,80 @@ form .register-link {
     color: white;
     font-family: 'Playpen Sans', cursive;
 }
+
+/* Home Page */
+
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Home Sidebar */
+
+.home-sidebar {
+    height: 100%;
+    background-color: #fbfbfa;
+    transition: all .3s ease-out;
+}
+
+.sidebar-container {
+    padding: 30px 35px;
+}
+
+.sidebar-header {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-open {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #1b1b1b;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.sidebar-close {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #1b1b1b;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.home-page {
+    height: 100%;
+}
+
+
+
+/* Utilites */
+
+.logo-image {
+    width: 200px;
+    height: 200px;
+}
+
+.logo-image-small {
+    width: 50px;
+    height: 50px;
+}
