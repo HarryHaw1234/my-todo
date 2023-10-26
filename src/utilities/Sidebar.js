@@ -1,13 +1,30 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAnglesLeft,
+  faSun,
+  faCalendar,
+  faStar,
+  faHouse,
+} from "@fortawesome/free-solid-svg-icons";
 function Sidebar(props) {
 
-//   const lists = [
-//     {icon: fa}
-//   ]
-//   const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState([
+    { icon: faSun, listName: "My Day" },
+    { icon: faStar, listName: "Important" },
+    { icon: faCalendar, listName: "Planned" },
+    { icon: faHouse, listName: "Houseworks" }
+  ]);
+
+  const listElements = lists.map(list => {
+    return (
+        <div className="sidebar-list">
+            <FontAwesomeIcon icon={list.icon} style={{color: "#8f53ff"}}/>
+            <span>{list.listName}</span>
+        </div>
+    )
+  })
 
   return (
     <div className="sidebar-container">
@@ -25,7 +42,7 @@ function Sidebar(props) {
         </div>
       </div>
       <div className="sidebar-lists">
-
+        {listElements}
       </div>
     </div>
   );

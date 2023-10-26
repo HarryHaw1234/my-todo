@@ -12,7 +12,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    user-select: none;
 }
 
 .login-page-parent {
@@ -206,7 +206,7 @@ form .register-link {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all .3s ease-out;
+    transition: all .2s ease-out;
 }
 
 .sidebar-close {
@@ -217,6 +217,25 @@ form .register-link {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-lists {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.sidebar-list {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border-bottom: 2px solid #1b1b1b;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 
