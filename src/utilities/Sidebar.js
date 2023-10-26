@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 function Sidebar(props) {
+
+//   const lists = [
+//     {icon: fa}
+//   ]
   const [lists, setLists] = useState([]);
 
   return (
@@ -19,6 +23,9 @@ function Sidebar(props) {
         >
           <FontAwesomeIcon icon={faAnglesLeft} />
         </div>
+      </div>
+      <div className="sidebar-lists">
+
       </div>
     </div>
   );

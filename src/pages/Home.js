@@ -2,7 +2,7 @@ import Sidebar from "../utilities/Sidebar";
 import { Allotment } from "allotment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
