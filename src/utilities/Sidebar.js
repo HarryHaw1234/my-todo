@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,16 +10,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 function Sidebar(props) {
 
-  const lists = [
+  const [lists, setLists] = useState([
     { icon: faSun, listName: "My Day" },
     { icon: faStar, listName: "Important" },
     { icon: faCalendar, listName: "Planned" },
     { icon: faHouse, listName: "Houseworks" }
-];
+  ]);
 
-  const listElements = lists.map(list => {
+  const listElements = lists.map((list, index) => {
     return (
-        <div className="sidebar-list">
+        <div className={`sidebar-list ${props.activeSite == list.listName ? "active" : ""}`} onClick={() => props.handleSite(list.listName)} data-value = {list.listName} key={index}>
             <FontAwesomeIcon icon={list.icon} style={{color: "#8f53ff"}}/>
             <span>{list.listName}</span>
         </div>

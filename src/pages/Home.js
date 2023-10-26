@@ -1,11 +1,14 @@
 import Sidebar from "../utilities/Sidebar";
+import HomeInput from "../utilities/HomeInput";
 import { Allotment } from "allotment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { act } from "react-dom/test-utils";
 
 function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [activeSite, setActiveSite] = useState("My Day");
 
   const sidebarOpenStyle = {
     transform: sidebarOpen ? `scale(${0})` : `scale(${1})`,
@@ -14,6 +17,10 @@ function Home() {
   const handleClick = () => {
     setSidebarOpen((oldData) => !oldData);
   };
+
+  const handleSite = (list) => {
+    setActiveSite(list)
+  }
   return (
     <div className="home-container">
       <Allotment defaultSizes={[100,300]}>
@@ -23,10 +30,12 @@ function Home() {
           visible={sidebarOpen ? true: false}
         >
           <div className="home-sidebar">
-            <Sidebar handleClick={handleClick}/>
+            <Sidebar handleClick={handleClick} handleSite = {handleSite} activeSite = {activeSite}/>
           </div>
         </Allotment.Pane>
-        <div className="home-page"></div>
+        <div className="home-page">
+            <HomeInput listName = {activeSite}/>
+        </div>
       </Allotment>
       <div
         className="sidebar-open"
