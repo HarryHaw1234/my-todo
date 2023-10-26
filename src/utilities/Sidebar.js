@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
@@ -7,13 +7,13 @@ function Sidebar(props) {
 //   const lists = [
 //     {icon: fa}
 //   ]
-  const [lists, setLists] = useState([]);
+//   const [lists, setLists] = useState([]);
 
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
         <Link to={"/"}>
-          <img src="/logo.svg" alt="Logo Image" className="logo-image-small" />
+          <img src="/logo.svg" alt="Logo" className="logo-image-small" />
         </Link>
         <div
           className="sidebar-close"

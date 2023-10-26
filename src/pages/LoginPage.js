@@ -6,7 +6,7 @@ function LoginPage() {
   return (
     <div className="login-page-parent">
       <div className="login-form">
-        <img src= {"/logo.svg"} alt="Logo Image" className="logo-image"/>
+        <img src= {"/logo.svg"} alt="Logo" className="logo-image"/>
         <h1>&#10003; Welcome</h1>
         <Link className="submit" to="/home">Get Started</Link>
       </div>
