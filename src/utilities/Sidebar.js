@@ -10,12 +10,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 function Sidebar(props) {
 
-  const lists = useState[
+  const lists = [
     { icon: faSun, listName: "My Day" },
     { icon: faStar, listName: "Important" },
     { icon: faCalendar, listName: "Planned" },
     { icon: faHouse, listName: "Houseworks" }
-  ];
+];
 
   const listElements = lists.map(list => {
     return (
