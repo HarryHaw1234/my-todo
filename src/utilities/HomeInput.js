@@ -68,7 +68,7 @@ function HomeInput(props) {
   };
 
   const deleteTodo = (id) => {
-    const filteredTodos = props.currentList.filter((todo) => todo.id != id);
+    const filteredTodos = props.currentList.filter((todo) => todo.id !== id);
     props.setCurrentList(filteredTodos);
   };
 
