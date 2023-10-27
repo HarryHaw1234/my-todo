@@ -3,7 +3,6 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 import {
   faCircle,
-  faStar,
   faCircleCheck,
   faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
@@ -43,7 +42,7 @@ function HomeInput(props) {
   }
 
   const handleKeyUp = (e, currentTodo) => {
-    if (e.key == "Enter") createNewTodo(currentTodo);
+    if (e.key === "Enter") createNewTodo(currentTodo);
   };
   const handleChange = (event) => {
     setCurrentTodo(event.target.value);

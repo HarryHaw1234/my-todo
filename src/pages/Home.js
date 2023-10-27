@@ -41,10 +41,10 @@ function Home() {
   };
 
   const handleSite = (event, listName) => {
-    if(event.target.classList.contains("svg-parent") || event.target.tagName == "svg") return;
+    if(event.target.classList.contains("svg-parent") || event.target.tagName === "svg") return;
     setLists((oldArr) => {
       return oldArr.map((list) => {
-        return list.listName == activeSite
+        return list.listName === activeSite
           ? { ...list, todolist: currentList }
           : list;
       });
