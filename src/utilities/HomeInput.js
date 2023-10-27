@@ -69,6 +69,7 @@ function HomeInput(props) {
 
   const deleteTodo = (id) => {
     const filteredTodos = props.currentList.filter((todo) => todo.id !== id);
+    console.log(filteredTodos)
     props.setCurrentList(filteredTodos);
   };
 
@@ -85,33 +86,10 @@ function HomeInput(props) {
           {todo.isComplete ? <strike>{todo.todo}</strike> : <>{todo.todo}</>}
         </span>
         <div className="list-icons">
-          <div onClick={openModal}>
+          <div onClick={() => deleteTodo(todo.id)}>
             <FontAwesomeIcon icon={faTrashCan} />
           </div>
         </div>
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-            Are you sure you want to delete?
-          </h2>
-          <button onClick={closeModal} className="modal-btn cancel-btn">
-            Cancel
-          </button>
-          <button
-            className="modal-btn delete-btn"
-            onClick={() => {
-              deleteTodo(todo.id);
-              closeModal();
-            }}
-          >
-            Delete
-          </button>
-        </Modal>
       </div>
     );
   });
