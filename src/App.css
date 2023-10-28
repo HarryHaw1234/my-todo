@@ -22,6 +22,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap-reverse;
 }
 
 .login-form {
@@ -42,6 +43,11 @@ main {
 }
 .login-form form {
     padding: 15px 20px;
+}
+
+.login-form p {
+    display: none;
+    padding: 10px 0;
 }
 
 form .txt-field {
@@ -152,14 +158,15 @@ form .register-link {
     background: #8360c3;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2ebf91, #8f53ff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2ebf91, #8f53ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     border-radius: 100% 0% 53% 47% / 0% 100% 0% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-slideshow {
     max-width: 450px;
     margin-left: auto;
-    margin-right: 15px;
 }
 
 .login-slide h3 {
@@ -418,4 +425,40 @@ form .register-link {
     border-bottom: 1px solid #1b1b1b;
     background-color: #fff;
     font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 415px) {
+
+    .login-page-parent {
+        margin: auto;
+    }
+    .login-form {
+        max-width: 100%;
+    }
+    .login-slideshow-parent {
+        display: none;
+    }
+    .login-form p {
+        display: block;
+    }
+
+    .sidebar-open {
+        width: 40px;
+        height: 40px;
+    }
+    .home-page {
+        
+    }
+
+    .home-page-input {
+        padding: 0 10px;
+    }
+
+    .home-page-input input {
+        padding: 0 5px;
+    }
+    .home-page-list {
+       width: 110%;
+       padding: 10px 15px;
+    }
 }

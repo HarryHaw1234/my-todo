@@ -9,37 +9,8 @@ import {
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-Modal.setAppElement("#root");
-
 function HomeInput(props) {
   const [currentTodo, setCurrentTodo] = useState("");
-
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#000";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   const handleKeyUp = (e, currentTodo) => {
     if (e.key === "Enter") createNewTodo(currentTodo);
@@ -72,7 +43,6 @@ function HomeInput(props) {
     console.log(filteredTodos)
     props.setCurrentList(filteredTodos);
   };
-
   
 
   const todoElements = props.currentList.map((todo, index) => {

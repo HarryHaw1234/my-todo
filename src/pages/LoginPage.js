@@ -9,6 +9,7 @@ function LoginPage() {
         <img src= {"/logo.svg"} alt="Logo" className="logo-image"/>
         <h1>&#10003; Welcome</h1>
         <Link className="submit" to="/home">Get Started</Link>
+        <p>Start your days with Your ToDo</p>
       </div>
       <div className="login-slideshow-parent">
         <div className="login-slideshow">

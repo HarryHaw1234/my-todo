@@ -7,7 +7,7 @@ import Modal from "react-modal";
 
 const customStyles = {
   content: {
-    width: "500px",
+    width: "80%",
     top: "50%",
     left: "50%",
     right: "auto",

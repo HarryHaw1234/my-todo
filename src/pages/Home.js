@@ -23,11 +23,10 @@ function Home() {
     ]
   );
   const [currentList, setCurrentList] = useState([]);
-
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [currentList, lists]);
-
+  console.log(window.innerWidth)
   const sidebarOpenStyle = {
     transform: sidebarOpen ? `scale(${0})` : `scale(${1})`,
   };
@@ -49,6 +48,7 @@ function Home() {
           : list;
       });
     });
+    if(window.innerWidth < 415) setSidebarOpen(oldData => !oldData)
     setActiveSite(listName);
     const currenttodoList = lists.find((list) => list.listName === listName);
     setCurrentList(currenttodoList.todolist);
@@ -72,6 +72,7 @@ function Home() {
             />
           </div>
         </Allotment.Pane>
+        <Allotment.Pane visible={window.innerWidth < 415 && sidebarOpen ? false : true}>
         <div className="home-page" style={homepageStyle}>
           <HomeInput
             listName={activeSite}
@@ -79,6 +80,7 @@ function Home() {
             setCurrentList={setCurrentList}
           />
         </div>
+        </Allotment.Pane>
       </Allotment>
       <div
         className="sidebar-open"
