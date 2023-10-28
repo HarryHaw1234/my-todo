@@ -27,6 +27,13 @@ function HomeInput(props) {
     };
     setCurrentTodo("");
     props.setCurrentList((oldArr) => [newTodo, ...oldArr]);
+    props.setLists((oldArr) => {
+      return oldArr.map((list) => {
+        return list.listName === props.activeSite
+          ? { ...list, todolist: props.currentList }
+          : list;
+      });
+    });
   };
 
   const handleComplete = (id) => {
@@ -66,7 +73,7 @@ function HomeInput(props) {
   return (
     <>
       <div className="home-page-lists">
-        <h3>{props.listName}</h3>
+        <h3>{props.activeSite}</h3>
         {todoElements}
       </div>
       <div className="home-page-input">

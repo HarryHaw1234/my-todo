@@ -22,7 +22,17 @@ function Home() {
       { icon: faHouse, listName: "Houseworks", default: true, todolist: [] },
     ]
   );
-  const [currentList, setCurrentList] = useState([]);
+  
+  const [currentList, setCurrentList] = useState(JSON.parse(localStorage.getItem("lists"))[0].todolist || []);
+  useEffect(() => {
+    setLists((oldArr) => {
+      return oldArr.map((list) => {
+        return list.listName === activeSite
+          ? { ...list, todolist: currentList }
+          : list;
+      });
+    });
+  }, [currentList])
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [currentList, lists]);
@@ -75,9 +85,10 @@ function Home() {
         <Allotment.Pane visible={window.innerWidth < 415 && sidebarOpen ? false : true}>
         <div className="home-page" style={homepageStyle}>
           <HomeInput
-            listName={activeSite}
+            activeSite={activeSite}
             currentList={currentList}
             setCurrentList={setCurrentList}
+            setLists={setLists}
           />
         </div>
         </Allotment.Pane>
