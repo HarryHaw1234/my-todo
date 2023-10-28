@@ -284,7 +284,7 @@ form .register-link {
 }
 
 .home-page {
-    height: 100%;
+    height: 100vh;
     margin: auto;
     overflow: auto;
     padding: 30px 40px;
@@ -456,7 +456,7 @@ form .register-link {
         padding: 0 5px;
     }
     .home-page-list {
-       width: 350px;
+       width: 300px;
        padding: 10px 15px;
     }
 }
