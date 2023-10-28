@@ -77,7 +77,6 @@ function HomeInput(props) {
           onChange={handleChange}
           value={currentTodo}
           onKeyUp={(e) => handleKeyUp(e, currentTodo)}
-          autoFocus
         />
         <div className="icon-button" onClick={() => createNewTodo(currentTodo)}>
           <FontAwesomeIcon icon={faPaperPlane} />

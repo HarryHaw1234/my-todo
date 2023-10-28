@@ -9,6 +9,7 @@
 }
 
 main {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -446,9 +447,6 @@ form .register-link {
         width: 40px;
         height: 40px;
     }
-    .home-page {
-        
-    }
 
     .home-page-input {
         padding: 0 10px;
@@ -458,7 +456,7 @@ form .register-link {
         padding: 0 5px;
     }
     .home-page-list {
-       width: 110%;
+       width: 350px;
        padding: 10px 15px;
     }
 }
