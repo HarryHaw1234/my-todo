@@ -19,6 +19,7 @@ function HomeInput(props) {
   };
 
   const createNewTodo = (todo) => {
+    if (todo === "") return;
     const newTodo = {
       id: nanoid(),
       todo: todo,
