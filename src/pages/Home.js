@@ -34,11 +34,12 @@ function Home() {
           : list;
       });
     });
-  }, [currentList]);
+  }, [activeSite]);
+
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [currentList, lists]);
-  console.log(window.innerWidth);
+
   const sidebarOpenStyle = {
     transform: sidebarOpen ? `scale(${0})` : `scale(${1})`,
   };
