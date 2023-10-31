@@ -22,8 +22,10 @@ function Home() {
       { icon: faHouse, listName: "Houseworks", default: true, todolist: [] },
     ]
   );
-  
-  const [currentList, setCurrentList] = useState(JSON.parse(localStorage.getItem("lists"))[0].todolist || []);
+
+  const [currentList, setCurrentList] = useState(
+    JSON.parse(localStorage.getItem("lists"))[0].todolist || []
+  );
   useEffect(() => {
     setLists((oldArr) => {
       return oldArr.map((list) => {
@@ -32,11 +34,11 @@ function Home() {
           : list;
       });
     });
-  }, [currentList])
+  }, [currentList]);
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [currentList, lists]);
-  console.log(window.innerWidth)
+  console.log(window.innerWidth);
   const sidebarOpenStyle = {
     transform: sidebarOpen ? `scale(${0})` : `scale(${1})`,
   };
@@ -50,7 +52,11 @@ function Home() {
   };
 
   const handleSite = (event, listName) => {
-    if(event.target.classList.contains("svg-parent") || event.target.tagName === "svg") return;
+    if (
+      event.target.classList.contains("svg-parent") ||
+      event.target.tagName === "svg"
+    )
+      return;
     setLists((oldArr) => {
       return oldArr.map((list) => {
         return list.listName === activeSite
@@ -58,7 +64,7 @@ function Home() {
           : list;
       });
     });
-    if(window.innerWidth < 415) setSidebarOpen(oldData => !oldData)
+    if (window.innerWidth < 415) setSidebarOpen((oldData) => !oldData);
     setActiveSite(listName);
     const currenttodoList = lists.find((list) => list.listName === listName);
     setCurrentList(currenttodoList.todolist);
@@ -82,15 +88,17 @@ function Home() {
             />
           </div>
         </Allotment.Pane>
-        <Allotment.Pane visible={window.innerWidth < 415 && sidebarOpen ? false : true}>
-        <div className="home-page" style={homepageStyle}>
-          <HomeInput
-            activeSite={activeSite}
-            currentList={currentList}
-            setCurrentList={setCurrentList}
-            setLists={setLists}
-          />
-        </div>
+        <Allotment.Pane
+          visible={window.innerWidth < 415 && sidebarOpen ? false : true}
+        >
+          <div className="home-page" style={homepageStyle}>
+            <HomeInput
+              activeSite={activeSite}
+              currentList={currentList}
+              setCurrentList={setCurrentList}
+              setLists={setLists}
+            />
+          </div>
         </Allotment.Pane>
       </Allotment>
       <div
