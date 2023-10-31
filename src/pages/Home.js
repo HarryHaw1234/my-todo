@@ -34,7 +34,7 @@ function Home() {
           : list;
       });
     });
-  }, [activeSite]);
+  }, [activeSite, currentList]);
 
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));
