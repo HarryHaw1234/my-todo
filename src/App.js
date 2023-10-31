@@ -10,7 +10,7 @@ function App() {
       <main className="main">
       <Routes>
         <Route path="/" element={localStorage.getItem("lists") ? <Home /> : <LoginPage />}/>
-        { localStorage.getItem("lists") && <Route path="/home" element={<Home />}/>}
+        { !(localStorage.getItem("lists")) && <Route path="/home" element={<Home />}/>}
       </Routes>
       </main>
     </BrowserRouter>
