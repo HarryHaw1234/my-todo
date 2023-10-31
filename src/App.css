@@ -339,6 +339,8 @@ form .register-link {
 
 .home-page-list span {
     padding: 0 10px;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .home-page-list svg {
@@ -447,7 +449,13 @@ form .register-link {
         width: 40px;
         height: 40px;
     }
-
+    .home-page {
+        width: 100vw;
+        padding: 30px 20px;
+    }
+    .home-page h3 {
+        padding: 0 30px;
+    }
     .home-page-input {
         padding: 0 10px;
     }
@@ -455,8 +463,11 @@ form .register-link {
     .home-page-input input {
         padding: 0 5px;
     }
+    .home-page-lists {
+        width: 100%;
+    }
     .home-page-list {
-       width: 250px;
+       width: 100%;
        padding: 10px 15px;
     }
 }
