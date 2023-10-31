@@ -24,7 +24,7 @@ function Home() {
   );
 
   const [currentList, setCurrentList] = useState(
-    JSON.parse(localStorage.getItem("lists"))[0].todolist || []
+    JSON.parse(localStorage.getItem("lists"))[0]?.todolist || []
   );
   useEffect(() => {
     setLists((oldArr) => {
