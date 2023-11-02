@@ -56,7 +56,7 @@ function HomeInput(props) {
       date: new Date(),
     };
     setCurrentTodo("");
-    props.setCurrentList((oldArr) => [newTodo, ...oldArr]);
+    props.setCurrentList((oldArr) => [...oldArr, newTodo]);
     props.setLists((oldArr) => {
       return oldArr.map((list) => {
         return list.listName === props.activeSite
