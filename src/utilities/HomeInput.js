@@ -69,9 +69,10 @@ function HomeInput(props) {
   const updateToDo = (id, newToDo) => {
     props.setCurrentList((oldArr) => {
       return oldArr.map((todolist) =>
-        todolist.id === id ? { ...todolist, todo: newToDo } : todolist
+        (todolist.id === id && todolist.todo === newToDo) ? { ...todolist, todo: newToDo } : todolist
       );
     });
+    setEditedTodo("");
   }
   const handleComplete = (id) => {
     props.setCurrentList((oldArr) => {
