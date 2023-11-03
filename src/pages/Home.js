@@ -15,7 +15,7 @@ function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeSite, setActiveSite] = useState("My Day");
   const [lists, setLists] = useState(
-    JSON.parse(localStorage.getItem("lists")) || [
+    () => JSON.parse(localStorage.getItem("lists")) || [
       { icon: faSun, listName: "My Day", default: true, todolist: [] },
       { icon: faStar, listName: "Important", default: true, todolist: [] },
       { icon: faCalendar, listName: "Planned", default: true, todolist: [] },
@@ -24,7 +24,7 @@ function Home() {
   );
 
   const [currentList, setCurrentList] = useState(
-    JSON.parse(localStorage.getItem("lists")) ? JSON.parse(localStorage.getItem("lists"))[0].todolist : []
+    () => localStorage.getItem("lists") ? JSON.parse(localStorage.getItem("lists"))[0].todolist : []
   );
   useEffect(() => {
     setLists((oldArr) => {
