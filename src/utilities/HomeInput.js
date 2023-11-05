@@ -8,38 +8,9 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import Modal from "react-modal";
-
-const customStyles = {
-  content: {
-    width: window.innerWidth < 415 ? "80%" : "50%",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-Modal.setAppElement("#root");
 
 function HomeInput(props) {
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    subtitle.style.color = "#000";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
   const [currentTodo, setCurrentTodo] = useState("");
-  const [editedTodo, setEditedTodo] = useState("");
   const handleKeyUp = (e, currentTodo) => {
     if (e.key === "Enter") createNewTodo(currentTodo);
   };
@@ -66,14 +37,6 @@ function HomeInput(props) {
     });
   };
 
-  const updateToDo = (id, newToDo) => {
-    props.setCurrentList((oldArr) => {
-      return oldArr.map((todolist) =>
-        (todolist.id === id && todolist.todo === newToDo) ? { ...todolist, todo: newToDo } : todolist
-      );
-    });
-    setEditedTodo("");
-  }
   const handleComplete = (id) => {
     props.setCurrentList((oldArr) => {
       return oldArr.map((todo) =>
@@ -103,36 +66,7 @@ function HomeInput(props) {
           <div onClick={() => deleteTodo(todo.id)}>
             <FontAwesomeIcon icon={faTrashCan} />
           </div>
-          <div onClick={() => openModal()}>
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </div>
         </div>
-        <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit your list</h2>
-        <input
-          type="text"
-          placeholder="Enter your new todo"
-          className="modal-input"
-          onChange={(e) => setEditedTodo(e.target.value)}
-          value={editedTodo}
-          required
-        />
-        <div className="btn-group">
-          <button className="modal-btn cancel-btn" onClick={closeModal}>
-            Cancel
-          </button>
-          <button className="modal-btn create-btn" onClick={() => {
-            updateToDo(todo.id, editedTodo)
-            closeModal();
-            }}>Edit</button>
-        </div>
-      </Modal>
       </div>
     );
   });
